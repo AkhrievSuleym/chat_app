@@ -59,7 +59,7 @@ class ContactsList extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.only(right: 15.0),
                 child: Divider(
-                    color: Color.fromARGB(255, 119, 127, 132), indent: 85),
+                    color: Color.fromARGB(255, 20, 215, 105), indent: 85),
               ),
             ],
           );
