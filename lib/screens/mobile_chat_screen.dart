@@ -10,7 +10,19 @@ class MobileChatScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: appBarColor,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                gradientColor1,
+                gradientColor2,
+                gradientColor2.shade600,
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+        ),
         title: Text(
           info[0]['name'].toString(),
         ),
@@ -19,14 +31,20 @@ class MobileChatScreen extends StatelessWidget {
           IconButton(
             onPressed: () {},
             icon: const Icon(Icons.video_call),
+            color: Colors.white,
+            iconSize: 30,
           ),
           IconButton(
             onPressed: () {},
             icon: const Icon(Icons.call),
+            color: Colors.white,
+            iconSize: 30,
           ),
           IconButton(
             onPressed: () {},
             icon: const Icon(Icons.more_vert),
+            color: Colors.white,
+            iconSize: 30,
           ),
         ],
       ),
@@ -43,7 +61,7 @@ class MobileChatScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 20.0),
                 child: Icon(
                   Icons.emoji_emotions,
-                  color: Colors.grey,
+                  color: Colors.white,
                 ),
               ),
               suffixIcon: const Padding(
@@ -53,15 +71,15 @@ class MobileChatScreen extends StatelessWidget {
                   children: [
                     Icon(
                       Icons.camera_alt,
-                      color: Colors.grey,
+                      color: Colors.white,
                     ),
                     Icon(
                       Icons.attach_file,
-                      color: Colors.grey,
+                      color: Colors.white,
                     ),
                     Icon(
                       Icons.money,
-                      color: Colors.grey,
+                      color: Colors.white,
                     ),
                   ],
                 ),

@@ -12,31 +12,51 @@ class MobileLayoutScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: appBarColor,
-          centerTitle: false,
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  gradientColor1,
+                  gradientColor2,
+                  gradientColor2.shade600,
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+            ),
+          ),
+          centerTitle: true,
           title: const Text(
-            'WhatsApp',
+            'Message',
             style: TextStyle(
-              fontSize: 20,
-              color: Colors.grey,
+              fontSize: 30,
+              color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
           ),
           actions: [
             IconButton(
-              icon: const Icon(Icons.search, color: Colors.grey),
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: const Icon(Icons.more_vert, color: Colors.grey),
+              icon: const Icon(
+                Icons.search,
+                color: Colors.white,
+                size: 30,
+              ),
               onPressed: () {},
             ),
           ],
+          leading: IconButton(
+            icon: const Icon(
+              Icons.more_vert,
+              color: Colors.white,
+              size: 30,
+            ),
+            onPressed: () {},
+          ),
           bottom: const TabBar(
             indicatorColor: tabColor,
             indicatorWeight: 4,
             labelColor: tabColor,
-            unselectedLabelColor: Colors.grey,
+            unselectedLabelColor: Colors.white,
             labelStyle: TextStyle(
               fontWeight: FontWeight.bold,
             ),
@@ -56,7 +76,7 @@ class MobileLayoutScreen extends StatelessWidget {
         body: const ContactsList(),
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
-          backgroundColor: tabColor,
+          backgroundColor: gradientColor2,
           child: const Icon(
             Icons.comment,
             color: Colors.white,
