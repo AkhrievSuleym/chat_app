@@ -10,7 +10,17 @@ class ChatAppBar extends StatelessWidget {
       height: MediaQuery.of(context).size.height * 0.077,
       width: MediaQuery.of(context).size.width * 0.75,
       padding: const EdgeInsets.all(10.0),
-      color: webAppBarColor,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            gradientColor1,
+            gradientColor2,
+            gradientColor2.shade600,
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -26,7 +36,7 @@ class ChatAppBar extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 0.01,
               ),
               const Text(
-                'Rivaan Ranawat',
+                'Sa Dai Da',
                 style: TextStyle(
                   fontSize: 18,
                 ),
