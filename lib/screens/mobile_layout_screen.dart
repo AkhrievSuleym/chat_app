@@ -62,13 +62,13 @@ class MobileLayoutScreen extends StatelessWidget {
             ),
             tabs: [
               Tab(
-                text: 'CHATS',
+                text: 'Chats',
               ),
               Tab(
-                text: 'STATUS',
+                text: 'Status',
               ),
               Tab(
-                text: 'CALLS',
+                text: 'Calls',
               ),
             ],
           ),
