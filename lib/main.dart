@@ -25,7 +25,6 @@ class MyApp extends StatelessWidget {
       ),
       home: const ResponsiveLayout(
         mobileScreenLayout: MobileLayoutScreen(),
-        webScreenLayout: WebLayoutScreen(),
       ),
     );
   }
