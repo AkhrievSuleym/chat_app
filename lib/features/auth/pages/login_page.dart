@@ -59,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
               height: 10,
             ),
             TextButton(
-              onPressed: () {},
+              onPressed: () => pickCountry,
               child: const Text('Pick Number'),
             ),
             const SizedBox(
