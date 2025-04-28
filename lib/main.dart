@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData.dark().copyWith(
           scaffoldBackgroundColor: backgroundColor,
         ),
+        onGenerateRoute: (settings) =>,
         home: const WelcomeScreen());
   }
 }

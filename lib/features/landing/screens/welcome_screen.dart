@@ -30,8 +30,7 @@ class WelcomeScreen extends StatelessWidget {
                       fontFamily: 'BigShouldersStencil',
                       fontSize: 55,
                       fontWeight: FontWeight.bold,
-                      color: Colors
-                          .white, // Белый текст для лучшей читаемости на фоне
+                      color: Colors.white,
                       shadows: [
                         Shadow(
                           blurRadius: 10,
