@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:my_chat_app/colors.dart';
 import 'package:my_chat_app/common/widgets/custom_button.dart';
+import 'package:my_chat_app/features/auth/pages/login_page.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
+
+  void navigateToLoginPage(BuildContext context) {
+    Navigator.pushNamed(context, LoginPage.routeName);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +59,7 @@ class WelcomeScreen extends StatelessWidget {
                     width: size.width * 0.75,
                     child: CustomButton(
                       text: 'AGREE AND CONTINUE',
-                      onPressed: () {},
+                      onPressed: () => navigateToLoginPage(context),
                     ),
                   ),
                   const SizedBox(height: 50),
