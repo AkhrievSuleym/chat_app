@@ -1,3 +1,4 @@
+import 'package:country_code_picker/country_code_picker.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:my_chat_app/colors.dart';
@@ -13,22 +14,12 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final phoneController = TextEditingController();
-  Country? country;
+  CountryCode? selectedCountry = CountryCode.fromCountryCode('RU');
 
   @override
   void dispose() {
     super.dispose();
     phoneController.dispose();
-  }
-
-  void pickCountry() {
-    showCountryPicker(
-        context: context,
-        onSelect: (Country userCountry) {
-          setState(() {
-            country = userCountry;
-          });
-        });
   }
 
   @override
@@ -54,29 +45,49 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Text('We will need to verify your phone number!'),
+            const Text(
+              'We will need to verify your phone number!',
+              style: TextStyle(fontSize: 15),
+            ),
             const SizedBox(
               height: 10,
             ),
-            TextButton(
-              onPressed: () => pickCountry,
-              child: const Text('Pick Number'),
+            CountryCodePicker(
+              onChanged: (CountryCode country) {
+                setState(() {
+                  selectedCountry = country;
+                });
+              },
+              initialSelection: 'RU',
+              favorite: const ['US', 'IN', 'BR', 'RU'],
+              showCountryOnly: false,
+              showOnlyCountryWhenClosed: false,
+              alignLeft: false,
+              showFlag: true,
+              flagWidth: 30,
+              padding: EdgeInsets.zero,
             ),
             const SizedBox(
               height: 5,
             ),
             Row(
               children: [
-                if (country != null) Text('+${country!.phoneCode}'),
+                if (selectedCountry != null)
+                  Text(
+                    selectedCountry!.dialCode ?? '',
+                    style: const TextStyle(fontSize: 18),
+                  ),
                 const SizedBox(
                   width: 10,
                 ),
                 SizedBox(
                   width: size.width * 0.7,
                   child: TextField(
+                    style: const TextStyle(fontSize: 18),
                     controller: phoneController,
                     decoration: const InputDecoration(
                       hintText: 'phone number',
+                      hintStyle: TextStyle(fontSize: 18),
                     ),
                   ),
                 )
@@ -86,7 +97,7 @@ class _LoginPageState extends State<LoginPage> {
             SizedBox(
               width: 90,
               child: CustomButton(
-                text: 'Next',
+                text: 'NEXT',
                 onPressed: () {},
               ),
             )
