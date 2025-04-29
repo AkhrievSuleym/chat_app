@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_chat_app/colors.dart';
 import 'package:my_chat_app/common/widgets/custom_button.dart';
 import 'package:my_chat_app/features/auth/pages/login_page.dart';
 
@@ -57,9 +58,13 @@ class WelcomeScreen extends StatelessWidget {
                   const SizedBox(height: 10),
                   SizedBox(
                     width: size.width * 0.75,
-                    child: CustomButton(
-                      text: 'AGREE AND CONTINUE',
+                    child: GradientButton(
                       onPressed: () => navigateToLoginPage(context),
+                      buttonWidth: 350,
+                      buttonHeight: 60,
+                      firstGradientColor: gradientColor1,
+                      secondGradientColor: gradientColor2,
+                      buttonText: "Sing In",
                     ),
                   ),
                   const SizedBox(height: 50),

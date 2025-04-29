@@ -94,13 +94,14 @@ class _LoginPageState extends State<LoginPage> {
               ],
             ),
             SizedBox(height: size.height * 0.6),
-            SizedBox(
-              width: 90,
-              child: CustomButton(
-                text: 'NEXT',
-                onPressed: () {},
-              ),
-            )
+            GradientButton(
+              onPressed: () {},
+              buttonWidth: 350,
+              buttonHeight: 60,
+              firstGradientColor: gradientColor1,
+              secondGradientColor: gradientColor2,
+              buttonText: "Sing In",
+            ),
           ],
         ),
       ),
