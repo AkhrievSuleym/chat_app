@@ -64,7 +64,7 @@ class WelcomeScreen extends StatelessWidget {
                       buttonHeight: 60,
                       firstGradientColor: gradientColor1,
                       secondGradientColor: gradientColor2,
-                      buttonText: "Sing In",
+                      buttonText: "Agree and continue",
                     ),
                   ),
                   const SizedBox(height: 50),

@@ -96,11 +96,11 @@ class _LoginPageState extends State<LoginPage> {
             SizedBox(height: size.height * 0.6),
             GradientButton(
               onPressed: () {},
-              buttonWidth: 350,
+              buttonWidth: 90,
               buttonHeight: 60,
               firstGradientColor: gradientColor1,
               secondGradientColor: gradientColor2,
-              buttonText: "Sing In",
+              buttonText: "NEXT",
             ),
           ],
         ),
