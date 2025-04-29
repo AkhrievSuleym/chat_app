@@ -10,8 +10,9 @@ Route<dynamic> generateRoute(RouteSettings settings) {
         builder: (context) => const LoginPage(),
       );
     case OTPPage.routeName:
+      final verificationId = settings.arguments as String;
       return MaterialPageRoute(
-        builder: (context) => const OTPPage(),
+        builder: (context) => OTPPage(verificationId: verificationId),
       );
     default:
       return MaterialPageRoute(
