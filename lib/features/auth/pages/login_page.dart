@@ -1,7 +1,9 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:logger/logger.dart';
 import 'package:my_chat_app/colors.dart';
+import 'package:my_chat_app/common/utils/snow_snack_bar.dart';
 import 'package:my_chat_app/common/widgets/custom_button.dart';
 import 'package:my_chat_app/features/auth/controller/auth_controller.dart';
 
@@ -15,6 +17,8 @@ class LoginPage extends ConsumerStatefulWidget {
 
 class _LoginPageState extends ConsumerState<LoginPage> {
   final phoneController = TextEditingController();
+  Logger logger = Logger();
+
   CountryCode? selectedCountry = CountryCode.fromCountryCode('RU');
 
   @override
@@ -26,7 +30,12 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   void sendPhoneNumber() {
     String phoneNumber = phoneController.text.trim();
     if (selectedCountry != null && phoneNumber.isNotEmpty) {
-      ref.read(authControllerProvider).singInWithPhone(context, phoneNumber);
+      ref.read(authControllerProvider).singInWithPhone(
+            context,
+            "+${selectedCountry!.dialCode}$phoneNumber",
+          );
+    } else {
+      showSnackBar(context, 'Fill out all fields');
     }
   }
 
@@ -66,6 +75,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                   selectedCountry = country;
                 });
               },
+              dialogBackgroundColor: Colors.black,
               initialSelection: 'RU',
               favorite: const ['US', 'IN', 'BR', 'RU'],
               showCountryOnly: false,
@@ -103,7 +113,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
             ),
             SizedBox(height: size.height * 0.6),
             GradientButton(
-              onPressed: () {},
+              onPressed: () => sendPhoneNumber(),
               buttonWidth: 90,
               buttonHeight: 60,
               firstGradientColor: gradientColor1,
