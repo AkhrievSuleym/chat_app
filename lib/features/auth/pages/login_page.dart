@@ -1,18 +1,19 @@
 import 'package:country_code_picker/country_code_picker.dart';
-import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_chat_app/colors.dart';
 import 'package:my_chat_app/common/widgets/custom_button.dart';
+import 'package:my_chat_app/features/auth/controller/auth_controller.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginPage extends ConsumerStatefulWidget {
   const LoginPage({super.key});
   static const routeName = '/login-page';
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  ConsumerState<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends ConsumerState<LoginPage> {
   final phoneController = TextEditingController();
   CountryCode? selectedCountry = CountryCode.fromCountryCode('RU');
 
@@ -20,6 +21,13 @@ class _LoginPageState extends State<LoginPage> {
   void dispose() {
     super.dispose();
     phoneController.dispose();
+  }
+
+  void sendPhoneNumber() {
+    String phoneNumber = phoneController.text.trim();
+    if (selectedCountry != null && phoneNumber.isNotEmpty) {
+      ref.read(authControllerProvider).singInWithPhone(context, phoneNumber);
+    }
   }
 
   @override
