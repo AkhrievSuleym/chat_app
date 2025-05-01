@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:my_chat_app/common/repositories/common_firebase_storage_repo.dart';
 import 'package:my_chat_app/common/utils/constants.dart';
 import 'package:my_chat_app/common/utils/snow_snack_bar.dart';
 import 'package:my_chat_app/features/auth/pages/otp_page.dart';
@@ -67,7 +68,7 @@ class AuthRepository {
     }
   }
 
-  void saveUserDatatoFirebase({
+  void saveUserDataToFirebase({
     required String name,
     required File? profilePic,
     required Ref ref,
@@ -77,7 +78,11 @@ class AuthRepository {
       String uid = auth.currentUser!.uid;
       String photoUrl = defaultImage;
 
-      if (profilePic != null) {}
+      if (profilePic != null) {
+        photoUrl = await ref
+            .read(commonFirebaseStorageRepoProvider)
+            .storeFileToFirebase('profilePic/$uid', profilePic);
+      }
     } catch (e) {
       showSnackBar(context, e.toString(), isError: true);
     }
