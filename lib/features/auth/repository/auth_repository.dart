@@ -9,6 +9,8 @@ import 'package:my_chat_app/common/utils/constants.dart';
 import 'package:my_chat_app/common/utils/snow_snack_bar.dart';
 import 'package:my_chat_app/features/auth/pages/otp_page.dart';
 import 'package:my_chat_app/features/auth/pages/user_info_page.dart';
+import 'package:my_chat_app/screens/mobile_layout_screen.dart';
+import 'package:my_chat_app/utils/user_model.dart';
 
 final authRepositoryProvider = Provider((ref) => AuthRepository(
       auth: FirebaseAuth.instance,
@@ -83,6 +85,24 @@ class AuthRepository {
             .read(commonFirebaseStorageRepoProvider)
             .storeFileToFirebase('profilePic/$uid', profilePic);
       }
+
+      var user = UserModel(
+        name: name,
+        uid: uid,
+        profilePic: photoUrl,
+        isOnline: true,
+        phoneNumber: auth.currentUser!.uid,
+        groupId: [],
+      );
+
+      await firestore.collection('users').doc(uid).set(user.toMap());
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const MobileLayoutScreen(),
+        ),
+        (route) => false,
+      );
     } catch (e) {
       showSnackBar(context, e.toString(), isError: true);
     }
