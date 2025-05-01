@@ -1,17 +1,19 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_chat_app/common/utils/constants.dart';
 import 'package:my_chat_app/common/utils/pick_image.dart';
+import 'package:my_chat_app/features/auth/controller/auth_controller.dart';
 
-class UserInfoPage extends StatefulWidget {
+class UserInfoPage extends ConsumerStatefulWidget {
   static const String routeName = '/user-info';
   const UserInfoPage({super.key});
 
   @override
-  State<UserInfoPage> createState() => _UserInfoPageState();
+  ConsumerState<UserInfoPage> createState() => _UserInfoPageState();
 }
 
-class _UserInfoPageState extends State<UserInfoPage> {
+class _UserInfoPageState extends ConsumerState<UserInfoPage> {
   final TextEditingController nameController = TextEditingController();
   File? image;
 
@@ -26,6 +28,15 @@ class _UserInfoPageState extends State<UserInfoPage> {
     setState(() {
       ();
     });
+  }
+
+  void storeUserData() async {
+    String name = nameController.text.trim();
+    if (name.isNotEmpty) {
+      ref
+          .read(authControllerProvider)
+          .saveUserDataToFirebase(name, image, context);
+    }
   }
 
   @override
