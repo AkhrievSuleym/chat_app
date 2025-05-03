@@ -29,7 +29,7 @@ class OTPPage extends ConsumerWidget {
           'Verifying your number',
           style: TextStyle(
             fontFamily: 'BigShouldersStencil',
-            fontSize: 30,
+            fontSize: 28,
             fontWeight: FontWeight.bold,
             color: Colors.white,
           ),
@@ -40,14 +40,14 @@ class OTPPage extends ConsumerWidget {
       body: Center(
         child: Column(
           children: [
-            const SizedBox(height: 20),
-            const Text('We have sent an SMS with a code.'),
+            const SizedBox(height: 22),
+            const Text('We have sent an SMS with a verifing code.'),
             SizedBox(
               width: size.width * 0.5,
               child: TextField(
                 textAlign: TextAlign.center,
                 decoration: const InputDecoration(
-                  hintText: '* * * * * *',
+                  hintText: '- - - - - -',
                   hintStyle: TextStyle(
                     fontSize: 30,
                   ),
