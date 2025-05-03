@@ -53,19 +53,19 @@ class _UserInfoPageState extends ConsumerState<UserInfoPage> {
                   image == null
                       ? const CircleAvatar(
                           backgroundImage: NetworkImage(defaultImage),
-                          radius: 64,
+                          radius: 60,
                         )
                       : CircleAvatar(
                           backgroundImage: FileImage(
                             image!,
                           ),
-                          radius: 64,
+                          radius: 60,
                         ),
                   Positioned(
                     bottom: -10,
                     left: 80,
                     child: IconButton(
-                      onPressed: selectImage,
+                      onPressed: () => selectImage,
                       icon: const Icon(Icons.add_a_photo),
                     ),
                   )
@@ -83,7 +83,7 @@ class _UserInfoPageState extends ConsumerState<UserInfoPage> {
                     ),
                   ),
                   IconButton(
-                      onPressed: () {},
+                      onPressed: () => storeUserData(),
                       icon: const Icon(
                         Icons.done,
                         size: 32,
