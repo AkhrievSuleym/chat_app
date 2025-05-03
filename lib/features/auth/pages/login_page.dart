@@ -1,7 +1,6 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:logger/logger.dart';
 import 'package:my_chat_app/colors.dart';
 import 'package:my_chat_app/common/utils/snow_snack_bar.dart';
 import 'package:my_chat_app/common/widgets/custom_button.dart';
@@ -17,7 +16,6 @@ class LoginPage extends ConsumerStatefulWidget {
 
 class _LoginPageState extends ConsumerState<LoginPage> {
   final phoneController = TextEditingController();
-  Logger logger = Logger();
 
   CountryCode? selectedCountry = CountryCode.fromCountryCode('RU');
 
@@ -46,10 +44,10 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Enter your phone number',
+          'Enter phone number',
           style: TextStyle(
             fontFamily: 'BigShouldersStencil',
-            fontSize: 30,
+            fontSize: 28,
             fontWeight: FontWeight.bold,
             color: Colors.white,
           ),
