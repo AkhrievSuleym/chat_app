@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_chat_app/colors.dart';
 
 class MyMessageCard extends StatelessWidget {
   final String message;
