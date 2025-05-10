@@ -3,8 +3,8 @@ import 'package:my_chat_app/colors.dart';
 import 'package:my_chat_app/common/widgets/custom_button.dart';
 import 'package:my_chat_app/features/auth/pages/login_page.dart';
 
-class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({super.key});
+class WelcomePage extends StatelessWidget {
+  const WelcomePage({super.key});
 
   void navigateToLoginPage(BuildContext context) {
     Navigator.pushNamed(context, LoginPage.routeName);
