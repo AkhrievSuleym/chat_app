@@ -41,7 +41,16 @@ class OTPPage extends ConsumerWidget {
         child: Column(
           children: [
             const SizedBox(height: 22),
-            const Text('We have sent an SMS with a verifing code.'),
+            const Text(
+              'We have sent an SMS with a verifing code.',
+              style: TextStyle(
+                fontFamily: 'BigShouldersStencil',
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+            const SizedBox(height: 22),
             SizedBox(
               width: size.width * 0.5,
               child: TextField(
