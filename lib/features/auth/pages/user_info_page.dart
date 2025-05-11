@@ -53,13 +53,13 @@ class _UserInfoPageState extends ConsumerState<UserInfoPage> {
                   image == null
                       ? const CircleAvatar(
                           backgroundImage: NetworkImage(defaultImage),
-                          radius: 60,
+                          radius: 70,
                         )
                       : CircleAvatar(
                           backgroundImage: FileImage(
                             image!,
                           ),
-                          radius: 60,
+                          radius: 70,
                         ),
                   Positioned(
                     bottom: -10,
@@ -79,9 +79,17 @@ class _UserInfoPageState extends ConsumerState<UserInfoPage> {
                     width: size.width * 0.85,
                     padding: const EdgeInsets.all(20),
                     child: TextField(
+                      textAlign: TextAlign.start,
                       controller: nameController,
-                      decoration:
-                          const InputDecoration(hintText: 'Enter yout name'),
+                      decoration: const InputDecoration(
+                        hintText: 'Enter your name',
+                        hintStyle: TextStyle(
+                          fontSize: 20,
+                          fontFamily: 'BigShouldersStencil',
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                   ),
                   IconButton(
