@@ -62,7 +62,12 @@ class _LoginPageState extends ConsumerState<LoginPage> {
           children: [
             const Text(
               'We will need to verify your phone number!',
-              style: TextStyle(fontSize: 15),
+              style: TextStyle(
+                fontSize: 20,
+                fontFamily: 'BigShouldersStencil',
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
             ),
             const SizedBox(
               height: 10,
@@ -74,13 +79,19 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                 });
               },
               dialogBackgroundColor: Colors.black,
+              textStyle: const TextStyle(
+                fontSize: 20,
+                fontFamily: 'BigShouldersStencil',
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
               initialSelection: 'RU',
               favorite: const ['US', 'IN', 'BR', 'RU'],
               showCountryOnly: false,
               showOnlyCountryWhenClosed: false,
               alignLeft: false,
               showFlag: true,
-              flagWidth: 30,
+              flagWidth: 35,
               padding: EdgeInsets.zero,
             ),
             const SizedBox(
@@ -116,7 +127,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
               buttonHeight: 60,
               firstGradientColor: gradientColor1,
               secondGradientColor: gradientColor2,
-              buttonText: "NEXT",
+              buttonText: "VERIFY",
             ),
           ],
         ),
